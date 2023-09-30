@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Task5</title>
+</head>
+<body>
+    <center>
+        <form onsubmit="return validate()" action="index.html">
+            <table style="margin-top: 90px;">
+                <tr>
+                    <td><label for="name" style="font-size:20px">Name:</label></td>
+                    <td> <input id="name" type="text" size="25" style="height:20px;"></td>
+                    <td> <span id="mssg1"></span><br><br></td>
+                </tr>
+                <tr>
+                    <td><label for="email" style="font-size:20px">Email:</label></td>
+                    <td> <input id="email" type="text" size="25" style="height:20px;"></td>
+                    <td><span id="mssg2"></span><br><br></td>
+                </tr>
+                <tr> 
+                    <td><label for="url" style="font-size:20px">Website:</label></td>
+                    <td> <input id="url" type="text" size="25" style="height:20px;"></td>
+                    <td><span id="mssg3"></span><br><br></td>
+                </tr>
+                <tr>
+                    <td><label for="mssg" style="font-size:20px;">Message:</label></td>
+                    <td> <textarea id="mssg" rows="5" cols="25" ></textarea></td>
+                    <td><span id="mssg4"></span><br><br></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    
+                    <td></td>
+                    <td><button type="submit" style="margin-left:1px; margin-top:5px; padding-left:12px; padding-right: 12px;" >Submit</button></td>
+                </tr>
+            </table>
+        </form>
+    </center>
+    <script>
+       function validate() {
+            var inp1 = document.getElementById("name");
+            var inp2 = document.getElementById("email");
+            var inp3 = document.getElementById("url");
+            var inp4 = document.getElementById("mssg");
+            var inp1Value = inp1.value;
+            var inp2Value = inp2.value;
+            var inp3Value = inp3.value;
+            var inp4Value = inp4.value;
+            var count=0;
+           if (inp1Value.length === 0) {
+                document.getElementById("mssg1").innerText = "This field is required";
+                document.getElementById("mssg1").style.color = "red";
+                inp1.style.borderColor = "red";
+                count++;
+                }
+            else {
+                inp1.style.borderColor = ""; 
+                document.getElementById("mssg1").innerText = "";
+            }
+            var reg1=/^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/;
+          
+            if (!inp2Value.match(reg1)) {
+                document.getElementById("mssg2").innerText = "A valid email address is required";
+                document.getElementById("mssg2").style.color = "red";
+                inp2.style.borderColor = "red";
+                count++;
+            } else {
+                inp2.style.borderColor = ""; 
+                document.getElementById("mssg2").innerText = "";
+            }
+            var reg2=/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/;
+            if (!inp3Value.match(reg2)) {
+                document.getElementById("mssg3").innerText = "A valid url is required";
+                document.getElementById("mssg3").style.color = "red";
+                inp3.style.borderColor = "red";
+                count++;
+            } else {
+                inp3.style.borderColor = ""; 
+                document.getElementById("mssg3").innerText = "";
+            }
+            if (inp4Value.length === 0) {
+                document.getElementById("mssg4").innerText = "This field is required";
+                document.getElementById("mssg4").style.color = "red";
+                inp4.style.borderColor = "red";
+                count++;
+                }
+            else {
+                inp4.style.borderColor = ""; 
+                document.getElementById("mssg4").innerText = "";
+            }
+           if(count==0){
+            return true;
+           }
+           return false;
+        } 
+    </script>
+</body>
+</html>

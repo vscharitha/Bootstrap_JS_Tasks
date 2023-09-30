@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Task7</title>
+
+    <script>
+        function start(){
+            document.getElementById("pic").style.animationPlayState ="running";
+        }
+        function stop(){
+            document.getElementById("pic").style.animationPlayState="paused";
+        }
+    </script>
+    <style>
+        h1,div{
+            text-align: center;
+        }
+        h1{
+            color: rgb(2, 2, 109);
+        }
+        img{
+            padding-top: 100px;
+            margin-left: 80px;
+            animation: move 4s linear infinite ;
+            animation-play-state: paused;
+        }
+        @keyframes move{
+            0% {padding-left: 0%;}
+            100% {padding-left: 80%;}
+        }
+    </style>
+</head>
+<body>
+    
+    <img id="pic" src="train.jpg" alt="train" height="200px">
+    <h1>Click the following buttons to handle animation</h1>
+    <div>
+        <button onclick="start()">Start</button>
+        <button onclick="stop()">Stop</button>
+    </div>
+</body>
+</html>

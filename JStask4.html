@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Javascript Task4</title>
+</head>
+<body>
+    <script>
+    function date(){
+        var a,date,month,year;
+        a=new Date();
+        date=a.getDate();
+        month=a.getMonth();
+        year=a.getFullYear();
+        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        document.getElementById("res1").innerHTML=date+"/"+months[month]+"/"+year;
+    }
+    function time(){
+        var a,date,month,year;
+        a=new Date();
+        document.getElementById("res2").innerHTML=a;
+    }
+</script>
+    <form name="myform">
+        <input type="button" value="Show date" onclick="date()">
+        <p id="res1"></p><br>
+        <input type="button" value="Show Time" onclick="time()">
+        <p id="res2"></p><br>
+    </form>
+</body>
+</html>

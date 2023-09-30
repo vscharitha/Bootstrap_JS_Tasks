@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Task8</title>
+</head>
+<style>
+    table {
+        border: none;
+    }
+    th {
+        text-align: right;
+        padding-right: 8px;
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+    td {
+        padding-bottom: 10px;
+    } 
+    input[type="text"], input[type="password"], textarea{
+        width: 80%;
+    }   
+</style>
+<body style="background: radial-gradient(circle at 5.3% 18.2%, rgb(241, 174, 225) 0%, rgb(242, 201, 160) 90%);">
+    <h1 style="color:rgb(12, 12, 221);" align="center">Registration form</h1>
+    <form>
+    <table  style="border-collapse: collapse;" align="center">
+        <tr>
+            <th>First Name </th>
+            <td><input type="text" id="fname"  onkeyup="f1()">
+            <span id="mssg1"></span>
+            </td>
+        </tr>
+        <tr>
+            <th>Last Name </th>
+            <td><input type="text" id="lname"  onkeyup="f2()">
+                <span id="mssg2"></span>
+            </td>
+        </tr>
+            <tr>
+                <th>Email </th>
+                <td><input type="text" id="email"  onkeyup="f3()">
+                    <span id="mssg3"></span>
+                </td>
+
+            </tr>
+        <tr>
+            <th>Password </th>
+            <td><input type="password" id="pass"  onkeyup="f4()">
+                <span id="mssg4"></span>
+            </td>
+        </tr>
+        <tr>
+            <th>Re-enter Password </th>
+            <td><input type="password" id="repass"  onkeyup="f5()">
+                <span id="mssg5"></span>
+            </td>
+        </tr>
+        <tr>
+            <th>Gender: </th>
+            <td>
+                <input type="radio" name="gender" size="60%">Male<br>
+                <input type="radio" name="gender" size="60%">Female
+            </td>
+        </tr>
+        <tr>
+            <th>Age: </th>
+            <td><input type="text" id="Age" onkeyup="f6()">
+                <span id="mssg6"></span>
+            </td>
+        </tr>
+        <tr>
+            <th>Phone Number </th>
+            <td><input type="text" id="phone"  onkeyup="f7()">
+                <span id="mssg7"></span>
+            </td>
+        </tr>
+        <tr>
+            <th>Address </th>
+            <td><textarea id="address" rows="5" cols="73" onkeyup="f8()"></textarea>
+                <span id="mssg8"></span>
+            </td>
+        </tr>
+        <tr>
+            <th>State </th>
+            <td><input type="text" id="state"  onkeyup="f9()">
+                <span id="mssg9"></span>
+            </td>
+        </tr>
+        <tr>
+            <th>Country </th>
+            <td><select name="country">
+                <option value="Choose your country">Choose your country</option>
+                <option value="India">India</option>
+                <option value="Australia">Australia</option>
+                <option value="Japan">Japan</option>
+            </select></td>
+        </tr>
+        <tr>
+            <th>Languages known </th>
+            <td>
+                <input type="checkbox" name="english">English 
+                <input type="checkbox" name="kannada">kannada
+                <input type="checkbox" name="hindi">Hindi
+                <input type="checkbox" name="telugu">Telugu
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="checkbox" name="check">Hereby I declare all the given details are true</td>
+        </tr>
+        <tr>
+            <td colspan="2" align="right">Log in to <a href="https://ethnus.com/about/">Ethnus</a> website</td>
+        </tr>
+    </table><br>
+    <div align="center" ><button name="register" value="Register"style="border:2px black solid;color:white;background-color:red;border-radius:20px; 
+    padding: 8px;width:100px">REGISTER</button></div>
+</form>
+    <script>
+        function f1(){
+            var inp1=document.getElementById("fname").value;
+            if(inp1.length < 5 ){
+                document.getElementById("mssg1").innerText="POOR";
+                document.getElementById("mssg1").style.color="Red";
+            }
+            else{
+                document.getElementById("mssg1").innerText="GOOD";
+                document.getElementById("mssg1").style.color="Green";
+            }
+        }
+        function f2(){
+            var inp2=document.getElementById("lname").value;
+            if(inp2.length < 5 ){
+                document.getElementById("mssg2").innerText="POOR";
+                document.getElementById("mssg2").style.color="Red";
+            }
+            else{
+                document.getElementById("mssg2").innerText="GOOD";
+                document.getElementById("mssg2").style.color="Green";
+            }
+        }
+        function f3(){
+            var inp3=document.getElementById("email").value;
+            var reg1=/^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/;
+            if(!inp3.match(reg1)){
+                document.getElementById("mssg3").innerText="POOR";
+                document.getElementById("mssg3").style.color="Red";
+            }
+            else{
+                document.getElementById("mssg3").innerText="GOOD";
+                document.getElementById("mssg3").style.color="Green";
+            }
+
+        }
+        function f4(){
+            var inp4=document.getElementById("pass").value;
+
+     if(inp4.length<5){
+        document.getElementById("mssg4").innerText="POOR";
+        document.getElementById("mssg4").style.color="Red";
+     }
+     else{
+         document.getElementById("mssg4").innerText="GOOD";
+         document.getElementById("mssg4").style.color="Green";
+        }
+    }
+        function f5(){
+            var inp5=document.getElementById("repass").value;
+            var inp4=document.getElementById("pass").value;
+
+        if(inp5.length<5){
+
+            document.getElementById("mssg5").innerText="POOR OR MISMATCH";
+        document.getElementById("mssg5").style.color="Red";
+        }
+        else if(inp5!=inp4){
+            document.getElementById("mssg5").innerText="POOR OR MISMATCH";
+        document.getElementById("mssg5").style.color="Red";
+        }
+        else{
+            document.getElementById("mssg5").innerText="GOOD";
+         document.getElementById("mssg5").style.color="Green"; 
+        }
+        }
+        function f6(){
+            var inp6=Number(document.getElementById("Age").value);
+            if(inp6>100 || inp6<0){
+                document.getElementById("mssg6").innerText="POOR";
+        document.getElementById("mssg6").style.color="Red";
+            }
+            else{
+                document.getElementById("mssg6").innerText="GOOD";
+         document.getElementById("mssg6").style.color="Green"; 
+            }
+        }
+        function f7(){
+   var reg2= /^\d{10}$/;
+   var inp7=document.getElementById("phone").value;
+   if(!inp7.match(reg2)){
+    document.getElementById("mssg7").innerText="POOR";
+        document.getElementById("mssg7").style.color="Red";
+   }
+   else{
+        document.getElementById("mssg7").innerText="GOOD";
+         document.getElementById("mssg7").style.color="Green"; 
+            }
+        }
+        function f8(){
+            var inp8=document.getElementById("address").value;
+            if(inp8.length <=5 ){
+                document.getElementById("mssg8").innerText="POOR";
+                document.getElementById("mssg8").style.color="Red";
+            }
+            else{
+                document.getElementById("mssg8").innerText="GOOD";
+                document.getElementById("mssg8").style.color="Green";
+            }
+        }
+        function f9(){
+            var inp9=document.getElementById("state").value;
+            if(inp9.length<3 ){
+                document.getElementById("mssg9").innerText="POOR";
+                document.getElementById("mssg9").style.color="Red";
+            }
+            else{
+                document.getElementById("mssg9").innerText="GOOD";
+                document.getElementById("mssg9").style.color="Green";
+            }
+        }
+        </script>
+</body>
+</html>
